@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- <link rel="stylesheet" href="//8.url.cn/edu/classroom/assets/lib/reset.css"> -->
+		<style>
+			body {
+				background-color: #fff;
+			}
+			
+			.page-msg {
+				display: flex;
+				flex-wrap: wrap;
+			}
+			
+			div.page-left {
+				background-image: url("http://coding.imweb.io/img/project/resume/bg.png");
+				background-color: rgb(24, 142, 238);
+				flex: 50%;
+				max-width: 50%;
+				min-height: 800px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				color: #dfdfdf;
+			}
+			div.left-wrap{
+				display: flex;
+				flex-direction: column;
+				margin-left: auto;
+				margin-right: auto;
+				justify-content: center;
+				align-items: center;
+			}
+			.avatar {
+				display:block;
+				border: 1px solid #ddd;
+				border-radius: 50%;
+				background-color: white;
+				width: 120px;
+				border: 6px solid #87CEEB;
+			}
+			
+			.avatar:hover {
+				border: 6px solid transparent;
+				box-shadow: 0 0 16px 8px #dbdbdb;
+			}
+			
+			.name {
+				font-size: 30px;
+			}
+			
+			.skill {
+				font-size: 20px;
+			}
+			
+			.page-left-icons {
+				color: black;
+				margin: 50px 10px;
+			}
+			
+			.page-left-box {
+				font-size: 14px;
+				font-weight: bold;
+				border: 1px solid #fff;
+				border-radius: 5px;
+				padding: 10px;
+				width: 370px;
+			}
+			
+			i.material-icons {
+				margin-right: 10px;
+			}
+			
+			i.fa.fa-github {
+				margin-right: 10px;
+				margin-top: 5px;
+			}
+			
+			.page-left-icons .icon-text {
+				font-size: 14px;
+				position: relative;
+				top: -6px;
+				color: black;
+			}
+
+			a:link {
+				text-decoration: none;
+			  }
+			  
+			  a:visited {
+				text-decoration: none;
+			  }
+			  
+			  a:hover {
+				text-decoration: underline;
+			  }
+			  
+			  a:active {
+				text-decoration: underline;
+			  }
+			
+			.page-right {
+				display: flex;
+				flex-direction: column;
+				flex: 50%;
+				max-width: 50%;
+			}
+			
+			.section-hd {
+				text-align: center;
+				position: relative;
+				padding: 10px 0;
+			}
+			
+			.section-hd.one {
+				padding: 30px 0;
+			}
+			
+			.section-hd.two {
+				padding-bottom: 0;
+			}
+			
+			.section-hd::before {
+				content: "";
+				width: 100%;
+				height: 1px;
+				background-color: #dbdbdb;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				margin: 0 30px;
+			}
+			
+			.section-hd .hd-tt {
+				font-size: 20px;
+				text-align: center;
+				display: inline-block;
+				background-color: #fff;
+				color: blue;
+				position: relative;
+				padding: 0 15px;
+			}
+			
+			.section-exp {
+				flex: 1;
+				padding: 0 50px;
+				margin-bottom: 50px;
+			}
+			
+			.exp-content {
+				position: relative;
+				display: flex;
+				flex: 40%;
+			}
+			
+			.exp-content i {
+				flex: 10%;
+			}
+			
+			.exp-content-main {
+				flex: 90%;
+			}
+			
+			.exp-content::before {
+				content: '';
+				position: absolute;
+				width: 2px;
+				height: 100%;
+				top: 10px;
+				left: -20px;
+				background: #dbdbdb;
+			}
+			
+			.exp-time {
+				position: relative;
+				font-size: 16px;
+				font-weight: bold;
+			}
+			
+			.exp-place {
+				font-size: 16px;
+				font-weight: bold;
+			}
+			
+			.exp-content-text {
+				font-size: 14px;
+				color: rgb(166, 167, 168);
+				word-spacing: 5px;
+			}
+			
+			.line-circle {
+				position: absolute;
+				border: 8px solid rgb(24, 142, 238);
+				border-radius: 50%;
+				left: -27px;
+				top: 6px;
+				box-shadow: 0 0 0 3px #DBDBDB;
+			}
+			
+			.line-circle:hover {
+				box-shadow: 0 0 8px 5px #CCCCCC;
+			}
+			/*从这里开始是progressbar的style*/
+			.section-skill-list{
+				list-style: none;
+			}
+			
+			.progress {
+				width: 100%;
+				height: 5px;
+				border-radius: 3px;
+				/*background-image: linear-gradient(to right,#c0c0c0,#f9f);*/
+				background-color: #D0D0D0;
+				background-repeat: repeat-x;
+				box-shadow: inset 0 2px rgba(0, 0, 0, .1);
+			}
+			
+			.bar {
+				height: 5px;
+				background-color: #3366FF;
+				/*background-image: linear-gradient(top,#149bdf, #0480be);*/
+				background-repeat: repeat-x;
+				box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+				box-sizing: border-box;
+			}
+			
+			.bar:hover {
+				/*当我把skill-item弄为hover的时候，因为我把弄为了relative,把skill-level，把了解，精通等弄为了absolute来定位的，因此出现了skill-level和动画同时运动的情况*/
+				animation-name: progress-one;
+				/*但我想过把section-skill最大的嵌套弄为relative，后来把section-level弄为absolute来定位，但那样的话，必须得给全部section-level重新样式.*/
+				animation-duration: 3s;
+			}
+			
+			@keyframes progress-one {
+				from {
+					width: 20%;
+				}
+				to {
+					width: 60%;
+				}
+			}
+			/*从这里是技能的样式*/
+			
+			section.section-skill {
+				flex: 1;
+				margin: 0 30px;
+			}
+			
+			.skill-item {
+				margin: 20px 0;
+				position: relative;
+			}
+			
+			.skill-item .skill-level {
+				position: absolute;
+				right: 5px;
+				top: 10px;
+				background-color: rgb(244, 244, 244);
+				border-radius: 5px;
+				padding: 0 10px;
+				font-size: 10px;
+				color: rgb(163, 169, 175);
+				font-weight: bold;
+				font-family: "微软雅黑";
+			}
+			
+			.skill-item .skill-dt {
+				color: rgb(166, 167, 168);
+				margin-bottom: 8px;
+			}
+			
+			@media screen and (max-width:768px) {
+				.page-msg {
+					flex-direction: column;
+					margin: 0 0;
+				}
+				div.page-left {
+					flex: auto;
+					max-width: 100vw;
+				}
+				div.page-right {
+					flex: auto;
+					max-width: 100vw;
+				}
+				.skill {
+					font-size: 16px;
+					margin: 0 auto;
+				}
+				.page-left-box {
+					width: 320px;
+					margin: 0 10px;
+				}
+			}
+		</style>
+	</head>
+
+	<body> 
+		<div class="page-msg">           <!--整个内容为flex模型-->
+			<div class="page-left">    <!--首先把整个内容分为了两块，page-left和page-right，各flex为50%。-->
+				<div class="left-wrap">   <!--后来又把page-left（为flex模型）里面的内容放在了一个盒子里(这个也搞了flex模型。)，先把整个盒子给垂直居中了。-->
+					<img class="avatar" src="reyimu.png" style="width:150px;" />
+					<h1 class="name">热依木</h1>
+					<p class="skill">求职意向：web前端开发</p>
+
+					<div class="page-left-icons">
+						<i class="material-icons">email</i><span class="icon-text">1351494149@qq.com</span><br />
+						<i class="material-icons">phone_android</i><span class="icon-text">13289031488</span><br />
+						<i class="fa fa-github" style="font-size: 24px;"></i><a class="icon-text" href="https://github.com/ReYim" target="_blank">https://github.com/ReYim</a>
+					</div>
+
+					<div class="page-left-box">
+						<p><span>学历:本科</span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span>在读院校:深圳大学</span></p>
+						<p><span>专业:软件工程</span>&emsp;&emsp;&emsp;&emsp;&emsp;<span>毕业年份:2020年</span></p>
+					</div>
+				</div>
+			</div>
+
+			<div class="page-right">   <!--flex container-->
+				<section class="section-exp">    <!--把page-right分为了两个部分，一部分为工作经验，另一部分为工作技能-->
+					<div class="section-hd one">
+						<h2 class="hd-tt">实习经历</h2>
+					</div>
+					<div class="exp one">
+						<div class="exp-content">
+							<i class="line-circle"></i>
+							<div class="exp-content-main">
+								<h3 class="exp-time">2019.03-2019.05</h3>
+								<h3 class="exp-place">深圳市辰风智联科技有限公司/web前端开发</h3>
+								<p class="exp-content-text">
+									1.负责开发公司项目“百度地图鹰眼轨迹管理平台”的移动端和网页端的界面。<br>
+									2.参与此项目的界面设计，根据用户体验进行前端界面的优化，修改页面的样式，提升用户体验。<br>
+									3.独立利用React/Reflux编写了基于百度地图API的创建电子围栏功能的实现和界面设计。</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="exp two">
+						<div class="exp-content">
+							<i class="line-circle"></i>
+							<div class="exp-content-main">
+								<h3 class="exp-time">2019.07-至今</h3>
+								<h3 class="exp-place">路智信科技（深圳）有限公司/web前端开发</h3>
+								<p class="exp-content-text">
+										负责BIM综合管理系统的开发任务。主要是使用HTML/CSS设计样式，前端框架Vue搭建系统框架，实现系统界面的设计。<br>
+										按照需求方案逐步完善各项功能以及后续的操作界面优化，以便提高系统的体验效果。<br>
+										利用Ajax技术通过调用接口与后端的数据进行交互，实现路桥模型与web界面的结合呈现。</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="section-skill">
+					<div class="section-hd two">
+						<h2 class="hd-tt skill-tt">技能特长</h2>
+					</div>
+					<ul class="section-skill-list">  <!--我是用了list，但我不清楚这样好不好，但我看到很多示例会这样用，我觉得也可以<div></div>来替代每一个<li></li>，但具体不知道-->
+						<li class="skill-item">
+							<i class="skill-level">熟练</i>     <!--我不知道为什么用<i></i>这样的标签，我是看实例学到的，我知道这个是italic标签，但为什么广泛用用户伪元素以及想特殊修饰的元素。-->
+							<h1 class="skill-tt">前端开发基础</h1>
+							<p class="skill-dt">HTML/CSS/JavaScript/Ajax</p>
+							<div class="progress">
+								<div class="bar" style="width: 80%"></div>
+							</div>
+						</li>
+
+						<li class="skill-item">
+							<i class="skill-level">熟悉</i>
+							<h1 class="skill-tt">前端框架技术</h1>
+							<p class="skill-dt">React/Vue/Bootstrap/jQuery</p>
+							<div class="progress">
+								<div class="bar" style="width: 60%"></div>
+							</div>
+						</li>
+
+						<li class="skill-item">
+							<h1 class="skill-tt">技能自我评述</h1>
+							<p class="skill-dt">能够根据产品需求配合后端开发人员，实现产品界面和功能以及互动效果；<br>
+									            具有较强的逻辑思维能力，思路清晰，具备良好的沟通能力和理解能力；</p>
+						</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+	</body>
+</html>

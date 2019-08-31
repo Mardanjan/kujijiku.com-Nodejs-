@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+
+<script src="../js/privateBoard.js"></script>
+<script src="../js/bootstrap.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+        <div class="container">
+          
+
+            
+                <div class="row">
+                        <h1>wellcome to message board</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">热门</div>
+                        <div class="col-md-1">最新</div>
+                        <div class="col-md-1"><a href="/addMessagePage">发表</a></div>
+                        <div class="col-md-1"><a href="/messageBoard">首页</a></div>
+                        <div class="col-md-1">关于</div>
+                       
+                    </div>
+
+                <div class="row">
+                        <div class="col-md-6">
+                          <br> <br> <br> <br> 
+                        </div>
+                    </div>
+            <div class="row">
+                <div class="col-md-6">
+                        <hr>
+                        <h1><p class="text-center">add Message </p>  </h1>
+                        <hr>
+                </div>
+                
+            </div>
+            
+
+            <div class="row">
+                <div class="col-md-1">content：</div>
+                <div class="col-md-5">
+                        <textarea class="form-control" rows="5"  name="message" id="message" style="min-width: 100%"></textarea>
+                        <!-- <button type="button" class="btn btn-primary btn-lg btn-block" onclick="addMessage()" id="message">Add</button> -->
+                </div>
+            </div>
+
+            <div class="row">
+                    <div class="col-md-6">
+                            <hr>
+                    </div>
+            </div>
+    
+
+            
+            <div class="row">
+                    <div class="col-md-1">标签：</div>
+                    <div class="col-md-3">
+                            <input type="text">
+                    </div>
+                    <div class="col-md-2">
+                          <span> 最多三个标签</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                        <div class="col-md-6">
+                                <hr>
+                        </div>
+                </div>
+        
+
+            <div class="row">
+                        <div class="col-md-1">验证：</div>
+                        <div class="col-md-2">
+                                <input type="text">
+                        </div>
+                        <div class="col-md-1">
+                             <img src="../img/yanzhengma.png" alt="">
+                        </div>
+                        <div class="col-md-2">
+                                <span>请输入验证码</span>
+                           </div>
+            </div>
+
+            <div class="row">
+                    <div class="col-md-6">
+                            <hr>
+                    </div>
+            </div>
+
+            <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="addMessage()" id="message">Add</button>
+                           <!-- <button onclick="aaddMessage()">发布</button> -->
+                    </div>
+                    <div class="col-md-3">
+                             <input type="checkbox" name="vehicle" value="Bike" />匿名发布
+                     </div>
+                    
+            </div>
+
+            <div class="row">
+                    <div class="col-md-6">
+                            <hr>
+                    </div>
+            </div>
+
+            <div class="row">
+                    <div class="col-md-6">
+                            
+                            <h2><p>投稿须知 </p>  </h1>
+                            
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                        <div class="col-md-5">1·请勿发表任何违反法律的内容</div>
+        
+                </div>
+                <div class="row">
+                        <div class="col-md-5">2·此网站仅用于学习，请勿发表广告</div>
+        
+                </div>
+                <div class="row">
+                        <div class="col-md-5">3·请至少填写15个字以上，请勿刷屏</div>
+        
+                </div>
+                <div class="row">
+                        <div class="col-md-5">4·如有冒犯到您请联系我：1317426768@qq.com</div>
+        
+                </div>
+      
+
+
+    </div>    
+</body>
+</html>

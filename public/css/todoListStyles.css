@@ -1,0 +1,16 @@
+.todo{
+    float: left;
+    display:inline-block;
+    width: 48%;
+    height: 100%;
+  
+    
+
+}
+.done{
+    float: right;
+    display:inline-block;
+    width: 48%;
+    height: 100%;
+    
+}

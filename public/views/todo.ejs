@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>todo</title>
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="../css/todoListStyles.css" type="text/css">
+        <script src="../js/todo-list.js"></script>
+        <script >
+        </script>
+    </head>
+    <body>
+       <h1>To Do List 初稿， 没有写数据库，数据会丢失，仅用于学习，后期再加上数据库和较好的外观</h1>
+        <h1>    <form action="/todo" method="POST"></form>
+            <input type="text" size="100%" name="item" placeholder="Add a new thing you want to do..." required> <br>
+            <input type="submit" name="" id="" value="add to list">
+        </form>
+    </h1>
+    <hr>
+            <div class="todo">
+                    <h2>To Do List</h2>
+                    <hr>
+                    <ul>
+                            <%for(var i=0 ; i<todo.length ; i++){%>
+                              <li>   <button id="<%=todo[i].thing%>"><%=todo[i].thing%></button> </li>
+                                 <hr>
+                            <%}%>
+                        </ul>
+                </div>
+                <div class="done">
+                    <h2>Done list</h2>
+                    <hr>
+                    <ul>
+                            <%for(var i=0 ; i<done.length ; i++){%>
+                                <li><%=done[i].thing%> </li> <hr>
+                            <%}%>
+                        </ul>
+                </div>
+    </body>
+</html>

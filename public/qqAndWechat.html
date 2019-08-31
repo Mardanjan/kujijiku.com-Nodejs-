@@ -1,0 +1,214 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   
+
+
+
+    <title>联系方式</title>
+    <style>
+.main-banner {
+    background: url(./bg2.jpg)no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+    position: relative;
+    min-height: 100vh;
+}
+.head{
+    height: 20%;
+}
+.body{
+    height: 65%;
+}
+.foot{
+    height: 2%;
+}
+#divcss5{ margin:10px auto} 
+#divcss5 img{ border-radius:50%} 
+
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #fff;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+p {
+    font-size: 0.9em;
+    color: #fff;
+    line-height: 1.9em;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+}
+.pTitle{
+    margin: 0;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-family: 'Source Sans Pro', sans-serif;
+    color:#0099CC;
+}
+.inter{
+  
+    /* width: 230px; */
+    margin:10px auto;
+    border-radius:60%;
+}
+.moved{
+   
+    /* width: 200px; */
+    margin:0px auto;
+    border-radius:0%;
+}
+
+    </style>
+</head>
+<body >
+
+    <div class="main-banner" id="app">
+        <div class="container" >
+    
+
+ 
+            <div class="middile-inner-con" >
+        <div class="head">
+                            <div class="w3pvt-logo text-center" >
+                            <h1> <a href="http://kujijiku.com"><P class="pTitle">kujijiku.com</P></a></h1>
+                            
+                
+        </div>
+
+                                
+            <div class="row">
+
+                            
+                                        
+            </div>
+                    
+            </div>
+
+         <div class="body">
+
+        
+           
+           <!-- 
+               works 栏
+            -->
+            <section >
+                   <!-- body 第一层 -->
+                   <div class="w3pvt-logo text-center" >
+                        <div id="divcss5" style="height: 20%;">
+                                <h3 class="text-center" v-if="language=='english'" >contact information.</h2>    
+                        </div>
+    
+            </div>
+                
+                
+          
+
+            <!-- body 第三层 -->        
+            <div class="row" style="height: 70%;">
+                    
+                
+                <div class="row" >
+
+                    <p class="text-center">
+
+                      
+                                
+                                    <a href="#"  id="todolist"> <img src="./qqCard.png" alt="qqCard"> </a>
+                                               
+                                    
+                              
+                                
+                        
+                                    
+                                        <a href="#"> <img src="./WeChatCard.jpg"  alt="WeChatCard" > </a>
+                                    
+                                   
+
+                    </p>
+                       
+                        
+                       
+                        
+                           
+
+             
+                </div>
+                
+          
+                    
+            </div>    
+                    
+    
+            </section>
+
+
+
+        </div>
+            
+        <div class="foot">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                        <br>
+                    </div>
+                    
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <p class="text-center">© 2019 Mardan Yusan. </p>
+                    </div>
+                    
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <br>
+                        </div>
+                   
+        </div>     
+                
+            
+          
+            
+          
+            
+            
+            
+
+                
+            
+    </div>
+</div>
+
+<script>
+ var vm = new Vue({
+        el:'#app',
+        data:{
+            home:true,
+            project:false,
+            skill:false,
+            about:false,
+            language:'english',
+            active: "",
+        },
+        methods:{
+        
+        
+            
+          
+        },
+    })
+</script>
+</body>
+</html>

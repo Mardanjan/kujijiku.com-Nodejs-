@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MardanYusan</title>
+    <link rel="stylesheet" href="./css/Index.css">
+	<link rel="shortcut icon" href="KuJiJiKu.png"/>
+    <script>
+        //LISTEN ENTER KEYDOWN EVENT
+        document.onkeydown = function(e){
+            if(!e){
+                e = window.event;
+            }
+            if((e.keyCode || e.which) == 13){
+                do_search();
+            }
+        }
+
+        //DO SEARCH EVENT
+        function do_baidu_search() {
+            var search_txt = document.getElementById("search-bar-input").value;
+            if (search_txt == "") {
+                alert("请输入您要搜索的内容 ! ");
+                return false;
+            }
+            var search_url = "https://www.baidu.com/s?wd=" + search_txt;
+            window.open(search_url);
+        }
+        function do_google_search() {
+            var search_txt = document.getElementById("search-bar-input").value;
+            if (search_txt == "") {
+                alert("请输入您要搜索的内容 ! ");
+                return false;
+            }
+            var search_url = "https://www.google.com/search?newwindow=1&hl=zh-CN&q=" + search_txt;
+            window.open(search_url);
+        }
+		function on_enter_key(){
+			if (event.keyCode==13){
+				var search_txt = document.getElementById("search-bar-input").value;
+				if (search_txt == "") {
+					alert("请输入您要搜索的内容 ! ");
+					return false;
+				}
+				var search_url = "https://cn.bing.com/search?q=" + search_txt;
+				window.open(search_url);
+			}
+		}
+    </script>
+</head>
+<body>
+
+<!---------------------------------------------------------------------------------------------------->
+
+<div id="logo">
+    <img src="./images/KuJiJiKu.png" alt="kujijiku.com">
+</div>
+
+<!---------------------------------------------------------------------------------------------------->
+<div id="search-bar">
+    <input id="search-bar-input"  onkeydown="on_enter_key()" type="text" placeholder="输入您想搜索的内容然后点击想用的搜索引擎（默认引擎是微软搜索）" autocomplete="off">
+    <button onclick="do_google_search()">谷歌搜索</button><a class="close"></a>
+	<button style="margin-left: 340px;" onclick="do_baidu_search()">百度搜索</button><a class="close"></a>
+
+</div>
+
+<!---------------------------------------------------------------------------------------------------->
+<div id="nav-panel">
+
+    <a class="nav-panel-item" title="深圳大学" href="https://www1.szu.edu.cn/szu.asp" target="_blank">
+        <img src="./images/web_icons/SZU.png" alt="深圳大学" height="16" width="16" class="nav-panel-item-img">
+        <div class="nav-panel-item-txt">深圳大学</div>
+    </a>
+
+    <a class="nav-panel-item" title="Github" href="https://github.com/" target="_blank">
+        <img src="./images/web_icons/Github.png" alt="Github" height="16" width="16" class="nav-panel-item-img">
+        <div class="nav-panel-item-txt">Github</div>
+    </a>
+
+    <a class="nav-panel-item" title="qqmail" href="https://mail.qq.com/" target="_blank">
+        <img src="./images/web_icons/QQemail.png" alt="QQ邮箱" height="16" width="16" class="nav-panel-item-img">
+        <div class="nav-panel-item-txt">QQ邮箱</div>
+    </a>
+
+    <a class="nav-panel-item" title="Zhihu" href="http://www.zhihu.com/" target="_blank">
+        <img src="./images/web_icons/Zhihu.png" alt="Zhihu" height="16" width="16" class="nav-panel-item-img">
+        <div class="nav-panel-item-txt">Zhihu</div>
+    </a>
+
+    <a class="nav-panel-item" title="Bilibili" href="http://www.bilibili.com/" target="_blank">
+        <img src="./images/web_icons/Bilibili.png" alt="Bilibili" height="16" width="16" class="nav-panel-item-img">
+        <div class="nav-panel-item-txt">Bilibili</div>
+    </a>
+    <!---------------------------------------------------------------------------------------------------->
+    <div class="nav-panel-line"></div>
+
+
+
+
+
+
+
+    <!---------------------------------------------------------------------------------------------------->
+    <div class="nav-panel-line"></div>
+
+   <!-- 作品栏 -->
+
+    <a class="nav-panel-item" title="留言板" href="/messageBoard" target="_self">
+        <img src="./images/web_icons/Me.png" alt="留言板" height="16" width="16" class="nav-panel-item-img">
+        <div class="nav-panel-item-txt">留言板</div>
+    </a>
+
+    <a class="nav-panel-item" title="todoList" href="/todo" target="_self">
+        <img src="./images/web_icons/Me.png" alt="todoList" height="16" width="16" class="nav-panel-item-img">
+        <div class="nav-panel-item-txt">todoList</div>
+    </a>
+
+    <!-------------------------------------------------
+   作者联系方式：1317426768@qq.com
+ --------------------------------------------------->
+
+
+
+
+	
+	
+</div>
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!-- 
+    仅用于学习！所有代码都在这里，有问题请联系我QQ:1317426768
+    不会收集用户的任何数据，数据都是保存在浏览器缓存，不同的浏览器数据不通
+ -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>      
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        li,a,p{
+            flood-color: blue;
+            font-weight:700;
+            font-size: 20;
+        }
+    </style>
+    <title>Todo List 简洁的待办事项列表</title>
+</head>
+<body>
+<div class="container">
+    <div id="app" > 
+        <div class="row">
+                    <h1>待办事项-列表无须注册即可使用-数据存储在用户浏览器缓存-放心使用！</h1>
+        </div>
+
+        <div class="row"> <hr> </div>
+
+        <div class="row">
+                <div class="row">
+                        <div class="col-lg-12">
+                            <div class="input-group">
+                                    <input type="text" class="form-control" v-model="id" v-focus  @keyup.enter="add">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button" @click="add()">Go!</button>
+                                </span>
+                            </div> 
+                        </div>
+                </div>
+
+        <div class="row"> <hr> </div>
+       
+        <section>
+            <h2> 待办事项 </h2>
+            <ol>
+                <div class="row" v-for="item in list">
+                    <li v-if="item.isDone == false">
+                            <div class="col-lg-10"> <a href=""><p   @click="todo(item.thing,true)" >{{item.thing}}</p></a></div>
+                            <div class="col-lg-1"><a href="" @click.prevent="del(item.thing)">del</a></div>
+                    </li>
+                </div> 
+            </ol>
+        </section>
+
+        <section>
+            <h2> 完成事项 </h2>
+            <ol>
+                <div class="row" v-for="item in list">
+                    <li v-if="item.isDone == true">
+                            <div class="col-lg-10"> <a href=""><p   @click="todo(item.thing,false)" >{{item.thing}}</p></a></div>
+                            <div class="col-lg-1"><a href="" @click.prevent="del(item.thing)">del</a></div>
+                    </li>
+                </div> 
+            </ol>        
+        </section>
+           
+    </div>
+</div>
+    <script>
+          Vue.directive('focus',{
+            bind:function(el){ //每当指令绑定到元素身上的时候会立即执行这个bind函数，只执行一次
+                //el.focus();  //el表示被绑定的那个元素，这个el是一个原生的
+            },
+            inserted:function(el){ //表示元素插入到dom中的时候会执行insert函数
+                el.focus();
+            },
+            updated:function(){ //当vnode更新的时候会执行，可能会触发多次
+
+            }
+        })
+
+        var vm = new Vue({
+            el:'#app',     
+            data:{
+             msg:"welcome to todolist!",
+       
+             list:this.getData ,
+             id:'',
+             test:this.getTest,
+            },
+            methods :{
+                done(key,value){
+                    for(var i=0 ;i<this.list.length ; i++){
+                        if(this.list[i].thing==key){
+                            this.list[i].isDone=value;
+                        }
+                    }
+                    this.saveData(this.list);
+                   // alert(key + value);
+                },
+                todo(key,value){
+                    for(var i=0 ;i<this.list.length ; i++){
+                        if(this.list[i].thing==key){
+                            this.list[i].isDone=value;
+                        }
+                    }
+                    this.saveData(this.list);
+                   // alert(key + value);
+                },
+                add(){
+                    this.list.push({thing:this.id , isDone:false});
+                    this.saveData(this.list);
+                   
+                },
+               
+                saveData(data){
+                    localStorage.setItem("list", JSON.stringify(data));   //JS对象转换成JSON对象存进本地缓存
+                },
+                getData(){
+                    var hisTory = localStorage.getItem("list");
+                    if(hisTory !=null){
+                       return JSON.parse(hisTory);     //JSON对象转换为JS对象
+                    }
+                    else { return []; }
+                },
+                del(thing){
+                    //alert(thing);
+                    var index = this.list.findIndex(item=>{
+                    if(item.thing==thing){
+                        return true;
+                    }
+                });
+                this.list.splice(index,1);
+                this.saveData(this.list);
+                }
+             
+            },
+            beforeCreate(){
+             //beforeCreate 执行的时候 data 和 methods 中的数据都没被初始化   
+            },
+            created(){
+                //在created中 data 和methods 都被初始化了
+            },
+            beforeMount(){
+                //第三个声明周期：模版已经编译完成了，但是尚未把模版渲染到页面中去
+                //他执行的时候页面中的元素还没有被替换{{msg}}
+                
+                this.list = this.getData();
+                console.log(this.list);
+
+            },
+            mounted(){
+                //这是第四个周期，表示内存中的模版已经真实的挂在到页面中，用户可以看到已经渲染好的页面
+                
+            }
+
+        })
+    </script>
+</body>
+</html>

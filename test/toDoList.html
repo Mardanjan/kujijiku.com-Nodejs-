@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+      
+    <title>Document</title>
+    <script src="./toDoList.js"></script>
+</head>
+<body onload="rend()">
+    <div class="container">
+        <div class="row">
+            <section>
+                <label for="addList">My todo list</label>
+                <input type="text" id="addList" name="addList"   required>
+                <button onclick="addToDoList()">add</button>
+
+            </section>
+
+            <div class="row">
+                <h1>to to list</h1>
+                <ol id="toDoList">
+
+                </ol>
+            </div>
+            <hr>
+            <div class="row">
+                <h1>Done</h1>
+                <ol id="done">
+
+                </ol>
+            </div>
+            <div class="row">
+                <button>clear</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
