@@ -1,4 +1,5 @@
 const news = require('./tables/news');
+const blogs = require('./tables/blogs');
 var request = require('request');
 const key="88108030d754f005712d5408e7f22f96"  //聚合可以的免费api
 // 类型,,top(头条，默认),shehui(社会),guonei(国内),guoji(国际),yule(娱乐),tiyu(体育)junshi(军事),keji(科技),caijing(财经),shishang(时尚)
@@ -14,8 +15,91 @@ module.exports = function(app){
             return true
         }
     }
-   
 
+    /**
+     * 博客相关代码，后期要改
+     */
+   
+    app.get('/api/news/addBlog',(req,res) => {
+        res.header("Access-Control-Allow-Credentials", "true");
+        res.header("Access-Control-Allow-Origin", " * ");
+        console.log("/api/news/addBlog 收到")
+
+        if(isStringValuable(req.query.title)===true && isStringValuable(req.query.url)===true ){
+            console.log(req.query.title + req.query.url)
+            blogs.create({
+                title:req.query.title,
+                url:req.query.url,
+                author:req.query.author,
+            }).then(()=>{
+                res.json({
+                    code:200,
+                })
+            })
+        }else{
+            console.log("无效数据")
+            res.json({
+                code:"错误的数据"
+            })
+        }
+    })
+
+    app.get('/api/news/getBlogList',(req,res) => {
+        res.header("Access-Control-Allow-Credentials", "true");
+        res.header("Access-Control-Allow-Origin", " * ");
+        console.log("/api/news/getBlogList 收到")
+
+        blogs.findAll({
+            attributes: ['id','title', 'url','author','createdAt'],
+            where:{
+             isDeleted:null,
+            }
+        }).then(result=>{
+            if(result===null){
+                res.json({
+                    code:'获取数据失败'
+                })
+            }else{
+                res.json({
+                    code:200,   
+                    data:result,
+                    num:result.length,
+                })
+            }
+        })
+         
+    })
+
+    app.get('/api/news/delBlog',(req,res) => {
+        res.header("Access-Control-Allow-Credentials", "true");
+        res.header("Access-Control-Allow-Origin", " * ");
+        console.log("/api/news/delBlog 收到")
+        if(isStringValuable(req.query.id)===true){
+            console.log(req.query.id)
+            blogs.update(
+                {isDeleted: 'yes'}, 
+                {
+                    where: {
+                        id: req.query.id
+                    }
+                }
+            ).then(()=>{
+                res.json({
+                    code:200,
+                })
+            })
+        }else{
+            res.json({
+                code:"无效id",
+            })
+        }
+
+       
+         
+    })
+/**
+ * 根据类型获取新闻列表
+ */
     app.get('/api/news/getNewsListByType',(req,res) => {
         console.log("/api/news/getNewsListByType 收到")
         

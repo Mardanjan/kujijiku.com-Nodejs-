@@ -13,6 +13,16 @@ app.get('/',function (req,res) {
     res.header("Access-Control-Allow-Credentials", "true");
 	res.header("Access-Control-Allow-Origin", "*");   
     res.sendFile(__dirname+"/public/index.html");
+    res.end();
+	
+
+});
+
+app.get('/myblog',function (req,res) {
+    console.log("访问blog");
+    res.header("Access-Control-Allow-Credentials", "true");
+	res.header("Access-Control-Allow-Origin", "*");   
+    res.sendFile(__dirname+"/public/myblog.html");
 	res.end();
 
 });
