@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人简历</title>
+   
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+    <style type="text/css">
+    
+    body{
+        font-family: 'microsoft yahei','Arial','sans-serif'
+    }
+    .cvheader{
+        border-bottom: 1px solid #dfdfdf;
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
+    .cvheader h1{
+        margin: 0px;
+    }
+    .address{
+        background: #efb73e;
+    }
+    .cvbody{
+        padding-top: 50px;
+    }
+    .cbox{
+        margin-bottom: 30px;
+        /* color: #FFF; */
+        padding: 50px;
+    }
+    .green{
+        background: #2ecc71;
+    }
+    .orange{
+        background: orange;
+    }
+    .red{
+        background: #dd4814;
+    }
+    .bbox{
+        border: 1px solid #dfdfdf;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        padding: 39px;
+    }
+    .footer{
+        margin: 30px 0 30px;
+        padding: 10px;
+        background: #ccc;
+        color: #fff;
+    }
+    #mardan{
+        width: 160px;
+        height: 160px;
+        display: inline-block;
+        text-align: center;
+    
+    }
+    .name{
+        padding: 10px;
+    }
+    
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-brand">个人简历</a>
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#collapsel">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="collapsel">
+                    <p class="navbar-text">
+                        <button>个人技能</button>
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="row cvheader">
+            <!-- 标题文字 -->
+            <div class="col-xs-12  col-md-5 col-lg-5">
+
+               <div class="name">
+                    <h1 class="text-primary text-center">买尔旦江</h1> 
+                    <br>
+                    <p class="text-center"><span class="glyphicon glyphicon-paperclip"> </span> 求职意向 ： Web开发工程师</p>
+               </div>
+                
+            </div>
+            <!-- 联系方式 -->
+            <div class="col-xs-12 col-md-5 col-lg-5">
+                
+                <div class="row center-block">
+                    <div class="col-lg-4 col-md-4 col-xs-12">
+                        <p id="contact" class="address text-center">联系</p>
+                    </div>
+                    <div class="col-lg-0 col-md-0 col-xs-3 " >
+                            
+                           
+                            <br>
+                           
+                            
+                        </div> 
+                    <div class="col-lg-8 col-md-8 col-xs-9 " >
+                            
+                        <p><span class="glyphicon glyphicon-phone"></span>：181-2466-1418</p>
+                        <p ><span class="glyphicon glyphicon-envelope"></span>：1317426768@qq.com</p>
+                        <p><a href="https://github.com/Mardanjan"><span class="fa fa-github"></span>：github.com/mardanjan</a></p>
+                        <p><span class="glyphicon glyphicon-road">：深圳大学-------软件工程</span></p>
+                        <br>
+                       
+                        
+                    </div> 
+                </div>
+                
+            </div>
+            <!-- 头像 -->
+            
+            <div class="col-xs-12  col-md-2 col-lg-2 ">
+                <div class="middle">
+                        <p class="text-center">
+                                <img  id="mardan" src="./证件照1.jpg" alt="我是买尔旦江" class="">
+                        </p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- 页面主题 -->
+    
+    <div class="container">
+        <!-- 主题区左 -->
+        <div class="row cvbody">
+            
+            <div class="row">
+                <!-- 主题区左 -->
+              
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                        <!-- 个人介绍 -->
+                        <div class="cbox green">
+                                <h4>个人介绍</h4>
+                                <p>
+                                    我是买尔旦江，是个喜欢折腾的人。
+                                </p>
+                                <p>
+                                    经历的越多懂得也就越多。
+                                </p>
+                                <p>
+                                    不停地去尝试！不努力一下你就不会知道你有多强大！
+                                </p>
+                        </div>
+                        <!-- 个人技能 -->
+                        <div class="cbox red">
+                                <h4>技术栈</h4>
+                                <p>
+                                    <ul>
+                                        <li>掌握：HTML/CSS/JavaScript</li>
+                                        <li>熟悉：Vue.js/BootStrap等框架</li>
+                                        <li>了解：Node.js/Express等框架</li>
+                                        <li>基础：Java/C/C++/MySQL/Redis</li>
+                                    </ul>
+                                </p>
+                        </div>
+                        <!-- 语言水平 -->
+                        <div class="cbox orange">
+                                <h4>近期作品</h4>
+                                <p>
+                                    <ul>
+                                        <li><a href="#">移动端新闻资讯网页</a></li>
+                                     
+                                        <li><a href="#">树洞-发泄你的情绪</a></li>
+                                      
+                                        <li><a href="#">个人博客-总结以及分享知识</a></li>
+                
+                                        <li><a href="#">简洁待做事项列表</a></li>
+                                    </ul>
+                                </p>
+                        </div>
+                </div>
+                
+                <!-- 左右两栏间空白列 -->
+                <div class="col-lg-1 col-md-1 col-xs-12">
+
+                </div>
+            <!-- 主题区右 -->
+                <div class="col-lg-5 col-md-5 col-xs-12">
+                    
+                    <div class="row">
+                        <!-- 教育背景 -->
+                        <div class="bbox">
+                            <h4>就读院校</h4>
+                            <p><i>深圳大学-计算机与软件学院-软件工程-(2016-2020)</i></p>
+                            <h4>主修课程</h4>
+                            <p><i>程序设计基础，计算机网络，数据结构与算法，基于Web的编程</i></p>
+                            <p><i>操作系统，计算机组成与原理，编程语言，数据库系统概论</i></p>
+                            
+                        </div>
+                        <!-- 工作经验 -->
+                        <div class="bbox">
+                            <h4>项目经历</h4>
+                            <p><b>移动端新闻资讯网页</b></p>
+                            <p>
+                                <li>HTML,CSS,Vue.js,Node.js,MySQL独立开发</li>
+                                <li>获取新闻列表，查看新闻，新闻分类</li>
+                                <li>评论新闻，搜索新闻</li>
+                            </p>
+                            <p><b>学籍管理系统</b></p>
+                            <p>
+                                <li>Node.js,MySQL,Redis负责开发后端</li>
+                                <li>角色管理，各种增删改查</li>
+                            </p>
+                            <p></p>
+                        </div>
+                        <!-- 个人爱好 -->
+                        <div class="bbox">
+                            <h4>个人爱好</h4>
+                            <p><span class="glyphicon glyphicon-star"></span>：游泳/跑步</p>
+                            <p><span class="glyphicon glyphicon-music"></span>：动漫/音乐/电影</p>
+                            <p><span class="glyphicon glyphicon-sunglasses"></span>：写代码哈哈哈</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    <div class="container">
+        
+        <div class="row">
+            <div class="footer text-center">
+                制作：买尔旦江-2019-09，技术栈：bootstrap
+            </div>
+        </div>
+        
+    </div>
+    
+    
+</body>
+</html>

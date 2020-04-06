@@ -1,67 +1,34 @@
-
-
-// http://api.tianapi.com/meinv/
-
-var type = "social"
-// // 1567171327   已经导入
-var leixing = "social/"
-var request = require('request');
-//var myJokes = require('../controllers/tables/myJokes')
-var girls = require('../controllers/tables/newsTable/girls')
-var news = require('../controllers/tables/news')
-// var url = "http://api.tianapi.com/meinv/"+"?key=86b171c3c296592618e424e66d9680ef&num=3"
-var url = "http://api.tianapi.com/"+leixing+"/"+"?key=86b171c3c296592618e424e66d9680ef&num=50"
-
-
-request(url, function (error, response, body) {
-  if (!error && response.statusCode == 200) {
- 
-  var t = JSON.parse(body)
-
-  
-    var array = t.newslist;
-    for(var i=0 ;i<array.length ;i++){
-        news.create({
-            title:array[i].title,
-            ctime:array[i].ctime,
-            url:array[i].url,
-            picUrl:array[i].picUrl,
-            type:type,
-
-        }) 
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+    //https://github.com/andris9/nodemailer-wellknown#supported-services 支持列表
+    service: 'qq',
+    port: 465, // SMTP 端口
+    secureConnection: true, // 使用 SSL
+    auth: {
+        user: '407738105@qq.com',
+        //这里密码不是qq密码，是你设置的smtp密码
+        pass: 'fxflthescqwcbgib'
     }
-    console.log(array.length)
-    console.log(array)
-  }
-})
+});
 
+// NB! No need to recreate the transporter object. You can use
+// the same transporter object for all e-mails
 
-/**
- * 
-  用于移动数据 从girls表移动到news表
-girls.findAll({
-    attributes: ['ctime', 'url','picUrl','title'],
-}).then( list =>{
-    console.log("news"+list.length)
-    console.log(list[0].dataValues)
- 
-   console.log(list[0].dataValues.url)
-   console.log(list[0].dataValues.title)
-   console.log(list[0].dataValues.picUrl)
-   console.log(list[0].dataValues.ctime)
+// setup e-mail data with unicode symbols
+var mailOptions = {
+    from: '407738105@qq.com', // 发件地址
+    to: '1317426768@qq.com', // 收件列表
+    subject: 'Hello sir ! you have a message from your Website', // 标题
+    //text和html两者只支持一种
+    text: 'Hello world ?', // 标题
+    html: '<b>Hello world ?</b>' // html 内容
+};
 
-   console.log(list[55])
-        for(var i=0 ;i<list.length ; i++){
+// send mail with defined transport object
+transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+        return console.log(error);
+    }
+    console.log('Message sent: ' + info.response);
 
-            news.create({
-                title:list[i].dataValues.title,
-                ctime:list[i].dataValues.ctime,
-                url:list[i].dataValues.url,
-                picUrl:list[i].dataValues.picUrl,
-                type:"meinv",
-
-            }) 
-  }
-})
-
-*/
+});

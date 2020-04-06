@@ -1,8 +1,9 @@
-const news = require('./tables/news');
+
+const news = require('./tables/newsTable/news');
 const blogs = require('./tables/blogs');
 var request = require('request');
-const key="88108030d754f005712d5408e7f22f96"  //聚合可以的免费api
-// 类型,,top(头条，默认),shehui(社会),guonei(国内),guoji(国际),yule(娱乐),tiyu(体育)junshi(军事),keji(科技),caijing(财经),shishang(时尚)
+const Sequelize = require('sequelize');
+
 module.exports = function(app){
 
     /**
@@ -16,10 +17,142 @@ module.exports = function(app){
         }
     }
 
+    app.get('/api/newsComment/addNewsCommentById',function(req,res){
+        res.header("Access-Control-Allow-Credentials", "true");
+        res.header("Access-Control-Allow-Origin", " * ");
+        console.log("评论")
+        console.log(req.query.commentText + req.query.id)
+        if(isStringValuable(req.query.id)==true && isStringValuable(req.query.commentText)==true){
+            
+            var ctime = new Date()
+            news.newsComment.create({
+                commentText:req.query.commentText,
+                to:req.query.id,
+                from:"匿名用户",
+                ctime:ctime.toLocaleString(),
+            }).then(()=>{
+                console.log("成果！")
+                res.json({
+                    code:200,
+                })
+            })
+        }else{
+            res.json({
+                code:"无效数据"
+            })
+        }
+    })
+
+
+    app.get('/api/newsComment/getCommentsById',function(req,res){
+        res.header("Access-Control-Allow-Credentials", "true");
+        res.header("Access-Control-Allow-Origin", " * ");
+        console.log("获取评论请求")
+        if(isStringValuable(req.query.id)==true){
+            news.newsComment.findAll({
+                where:{
+                    to:req.query.id,
+                },
+                attributes: ['commentText','ctime','from'],
+            }).then(result=>{
+                if(result==null){
+                    res.json({
+                        code:"没有评论哦"
+                    })
+                }else{
+                   //console.log(result)
+                    res.json({
+                        code:200,
+                        data:result,
+                    })
+                }
+            })
+        }else{
+            res.json({
+                code:"无效数据"
+            })
+        }
+    })
+
+    app.get('/api/news/getNewsList',function(req,res){
+        res.header("Access-Control-Allow-Credentials", "true");
+        res.header("Access-Control-Allow-Origin", " * ");
+        if(isStringValuable(req.query.page) == true){
+            const page = req.query.page
+            const offset = 10*(page-1)+1
+            const limit = 10*(page)    
+            const Op = Sequelize.Op
+            news.news.findAll({
+                attributes: ['id','title','ctime','author','picUrl'],
+                where:{
+                    id: {
+                        [Op.between]: [offset, limit],    
+                      }             
+                }
+            }).then(result => {
+                //console.log(result)
+                if(result==null){
+                    res.json({
+                        code:"数据不存在"
+                    })
+                }else{ 
+                    news.news.findAll({   //这里需要优化，需要总共有多少数据所以查询两次
+                    }).then(all=>{
+                        if(all!=null){
+                            res.json({
+                                code:200,
+                                num:all.length,
+                                data:result,
+                                
+                            })
+                        }else{
+                            res.json({
+                                code:201,
+                            })
+                        }
+                    }) 
+                }
+            })
+        }else{
+            res.json({
+                code:"无效页码",
+            })
+        }
+    })
+    //获取详细新闻根据TITLE
+    app.get('/api/news/getNewById',function(req,res){
+       res.header("Access-Control-Allow-Credentials", "true");
+       res.header("Access-Control-Allow-Origin", " * ");
+        console.log("api/news/getNewById")
+        if(isStringValuable(req.query.id) === true){
+            news.news.findOne({
+                where:{
+                    id:req.query.id,
+                    isDelete:"no"
+                }
+            }).then( result=> {
+                if(result == null){
+                    res.json({
+                        code:"不存在数据"
+                    })
+                }else{
+                    //console.log(result)
+                    res.json({
+                        code:200,
+                        data:result,
+                    })
+                }
+            })
+        }else{
+            res.json({
+                code:"无效title",
+            })
+        }
+    })
+
     /**
      * 博客相关代码，后期要改
      */
-   
     app.get('/api/news/addBlog',(req,res) => {
         res.header("Access-Control-Allow-Credentials", "true");
         res.header("Access-Control-Allow-Origin", " * ");
@@ -137,7 +270,7 @@ module.exports = function(app){
                     var array = []
                     var num = 0;
                     for(var i=0 ;i< data.length ; i++){
-                        if(isStringValuable(data[i])===true && num <= 20){
+                        if(isStringValuable(data[i])===true && num < 10){
                             array[i] = data[i]
                             num++
                          //   console.log(num)

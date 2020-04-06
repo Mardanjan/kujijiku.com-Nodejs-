@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <title>滚动监听</title>
+</head>
+<body>
+        <nav id="navbar-example" class="navbar navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="colla[se" data-target="#navmenu">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand"> <img src="./livi.jpg" alt="" style="height: 50px;margin-top:-15px;"></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navmenu"  >
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#product">产品</a></li>
+                    <li><a href="#example">例子</a></li>
+                    <li><a href="#aboutMe">关于我</a></li>
+                    <li><a href="#technology">相关技术</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div data-spy="scroll" data-target="#navbar-example" data-offset="0" style="height: 250px; overflow:auto;position:relative;">
+            <h4 id="product">
+                产品简介
+            </h4>
+            <p>
+                    ecuting (default): SHOW INDEX FROM `news`                                                                                                                                                              R(255), `createdAt` DATETIME NOT NUL
+                    Executing (default): CREATE TABLE IF NOT EXISTS `blogs` (`id` INTEGER NOT NULL auto_increment , `url` VARCHAR(255), `title` VARCHAR(255), `author` VARCHAR(255), `label` VARCHAR(255), `isDeleted` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+                    Executing (default): SHOW INDEX FROM `blogs`                                                                                                                                                             TIME NOT NULL, PRIMARY KEY (`id`)) E
+                    Executing (default): CREATE TABLE IF NOT EXISTS `messageBoards` (`id` INTEGER NOT NULL auto_increment , `message` VARCHAR(255), `delete_at` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+                    Executing (default): SHOW INDEX FROM `messageBoards`  
+            </p>
+
+            <h4 id="example">
+                    例子
+            </h4>
+            <p>
+                        ecuting (default): SHOW INDEX FROM `news`                                                                                                                                                              R(255), `createdAt` DATETIME NOT NUL
+                        Executing (default): CREATE TABLE IF NOT EXISTS `blogs` (`id` INTEGER NOT NULL auto_increment , `url` VARCHAR(255), `title` VARCHAR(255), `author` VARCHAR(255), `label` VARCHAR(255), `isDeleted` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+                        Executing (default): SHOW INDEX FROM `blogs`                                                                                                                                                             TIME NOT NULL, PRIMARY KEY (`id`)) E
+                        Executing (default): CREATE TABLE IF NOT EXISTS `messageBoards` (`id` INTEGER NOT NULL auto_increment , `message` VARCHAR(255), `delete_at` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+                        Executing (default): SHOW INDEX FROM `messageBoards`  
+            </p>
+            <h4 id="aboutMe">
+                        关于我们
+            </h4>
+            <p>
+                            ecuting (default): SHOW INDEX FROM `news`                                                                                                                                                              R(255), `createdAt` DATETIME NOT NUL
+                            Executing (default): CREATE TABLE IF NOT EXISTS `blogs` (`id` INTEGER NOT NULL auto_increment , `url` VARCHAR(255), `title` VARCHAR(255), `author` VARCHAR(255), `label` VARCHAR(255), `isDeleted` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+                            Executing (default): SHOW INDEX FROM `blogs`                                                                                                                                                             TIME NOT NULL, PRIMARY KEY (`id`)) E
+                            Executing (default): CREATE TABLE IF NOT EXISTS `messageBoards` (`id` INTEGER NOT NULL auto_increment , `message` VARCHAR(255), `delete_at` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+                            Executing (default): SHOW INDEX FROM `messageBoards`  
+            </p>   
+
+            <h4 id="technology">
+                    相关技术
+        </h4>
+        <p>
+                        ecuting (default): SHOW INDEX FROM `news`                                                                                                                                                              R(255), `createdAt` DATETIME NOT NUL
+                        Executing (default): CREATE TABLE IF NOT EXISTS `blogs` (`id` INTEGER NOT NULL auto_increment , `url` VARCHAR(255), `title` VARCHAR(255), `author` VARCHAR(255), `label` VARCHAR(255), `isDeleted` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+                        Executing (default): SHOW INDEX FROM `blogs`                                                                                                                                                             TIME NOT NULL, PRIMARY KEY (`id`)) E
+                        Executing (default): CREATE TABLE IF NOT EXISTS `messageBoards` (`id` INTEGER NOT NULL auto_increment , `message` VARCHAR(255), `delete_at` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+                        Executing (default): SHOW INDEX FROM `messageBoards`  
+        </p>   
+
+        </div>
+</body>
+</html>

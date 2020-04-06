@@ -1,6 +1,8 @@
 var express = require('express');
 var newsController = require('./controllers/newsController');
 var boardController = require('./controllers/boardController');
+var emailController = require('./controllers/mailController')
+
 var app = express();
 
 app.use(express.static('./public'));
@@ -10,20 +12,18 @@ app.set('views',__dirname+'/public/views');
 
 app.get('/',function (req,res) {
     console.log("访问主页");
-    res.header("Access-Control-Allow-Credentials", "true");
-	res.header("Access-Control-Allow-Origin", "*");   
+   
     res.sendFile(__dirname+"/public/index.html");
-    res.end();
+   
 	
 
 });
 
 app.get('/myblog',function (req,res) {
     console.log("访问blog");
-    res.header("Access-Control-Allow-Credentials", "true");
-	res.header("Access-Control-Allow-Origin", "*");   
+   
     res.sendFile(__dirname+"/public/myblog.html");
-	res.end();
+	
 
 });
 
@@ -53,7 +53,9 @@ app.get('/reyimu',function (req,res) {
 
 boardController(app);
 newsController(app);
+emailController(app);
 
-app.listen(80);
+const port = 80
+app.listen(port);
 
-console.log('you are listening to port 80');
+console.log('you are listening to port '+ port);

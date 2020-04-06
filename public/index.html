@@ -1,828 +1,363 @@
-<!-- 
-
-
-
-哈哈 ！
-很粗心的页面
-边学边敲的代码，超级乱
-后期重新整理一下代码
-
-
-
-
- -->
-
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script> 
-    <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-   
-
-
-
-    <title>Mardan Yusan</title>
-    <style>
-.main-banner {
-    background: url(./bg2.jpg)no-repeat center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    -ms-background-size: cover;
-    background-size: cover;
-    position: relative;
-    min-height: 100vh;
-}
-.head{
-    height: 20%;
-}
-.body{
-    height: 65%;
-}
-.foot{
-    height: 2%;
-}
-#divcss5{ margin:10px auto} 
-#divcss5 img{ border-radius:50%} 
-
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin: 0;
-    letter-spacing: 1px;
-    font-weight: 600;
-    font-family: 'Source Sans Pro', sans-serif;
-    color: #fff;
-}
-ul {
-    margin: 0;
-    padding: 0;
-}
-p {
-    font-size: 0.9em;
-    color: #fff;
-    line-height: 1.9em;
-    letter-spacing: 1px;
-    margin-bottom: 0;
-}
-.pTitle{
-    margin: 0;
-    letter-spacing: 1px;
-    font-weight: 600;
-    font-family: 'Source Sans Pro', sans-serif;
-    color:#0099CC;
-}
-.inter{
-  
-    /* width: 230px; */
-    margin:10px auto;
-    border-radius:60%;
-}
-.moved{
-   
-    /* width: 200px; */
-    margin:0px auto;
-    border-radius:0%;
-}
-
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/vue-resource.min.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/myIndex.css">
+    <title>主页</title>
+    <style lang="">
+       
     </style>
 </head>
-<body >
-
-    <div class="main-banner" id="app">
-        <div class="container" >
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
         
-        <div class="row">
-                <!-- <button @click="changeLanguage">{{language}}</button> -->
-        </div>
-                    
-
- 
-            <div class="middile-inner-con" >
-        <div class="head">
-                            <div class="w3pvt-logo text-center" >
-                            <h1> <a href="index.html"><P class="pTitle">kujijiku.com</P></a></h1>
-                            
+        <div class="container">
+            <!-- 导航 -->
+            <nav class="navbar navbar-default navbar-fixed-top">
                 
-        </div>
-
-                                
-            <div class="row">
-
-                <div class="w3pvt-logo text-center" >     
-                                
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                                            <button type="button" class="btn btn-primary " @click="setHome()" id="home" @mouseenter="setHome()" >HOME</button>
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="#" class="navbar-brand">KUJIJIKU.COM</a>
                     </div>
-                                       
-                                          
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                                             <button type="button" class="btn btn-success " @click="setProject()" id="projects" @mouseenter="setProject()">WORKS</button>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right"> 
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#service">Work</a></li>
+                            <li><a href="#portfolio">Favorite</a></li>
+                            <li><a href="#pricing">Null</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
                     </div>
-                                          
-                                      
-                                       
-                                        
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                                            <button type="button" class="btn btn-success " @click="setSkill() " id="skill" @mouseenter="setSkill()">ABOUT</button>
-                    </div>
-                                        
-                                      
-                                         
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                                            <button type="button" class="btn btn-success " @click="setAbout()" id="about" @mouseenter="setAbout()">Contact</button>
-                    </div>
-                                                          
-                </div>
-                            
-                                        
-            </div>
-                    
-            </div>
-
-         <div class="body">
-
-            <!-- 
-                home 栏
-             -->
-                    <section v-if="home==true" class="inner-w3layouts-wrap">
-                     
-                        <!-- body 第一层 -->
-                        <div class="w3pvt-logo text-center" >
-                                    <div id="divcss5" style="height: 30%;">
-                                            <img src="./qiyu.jpg" class="admin img-fluid" alt="mobile-image"> 
-                                    </div>
-                
-                        </div>
-                            
-                            
-                        <!-- body 第二层 -->
-                        <div class="row" style="height: 20%;">
-
-                                        <h3 class="text-center" v-if="language=='english'" >Hi I'm Mardan Yusan</h2> 
-                                        <h3 class="text-center" v-if="language=='chinese'" >你好！ 我是买尔旦江</h2> 
-                        </div>
-                            
-
-                        <!-- body 第三层 -->        
-                        <div class="row" style="height: 10%;">
-                                
-                                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                                            <br>
-                                    </div> 
-                                        <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-                                                <h4>My Favorite sentence</h2>
-                                           
-                                        </div>
-                        </div>    
-                                
-                        <!-- body 第四层 -->                  
-                        <div class="row" style="height: 40%;">
-                                        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                                                <br>
-                                        </div>
-    
-                                        <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-                                            <ul>
-                                                <li>
-                                                        <p>What doesn't kill you makes you stronger.</p>
-                                                    
-                                                </li>
-                                                <li>
-                                                        <p>Every program, is a wisp of my soul;Every piece of code is my life.</p>   
-                                                </li>
-                                                <li>
-                                                        <p>My code is poetic, even if it doesn't work but it's elegant.</p>   
-                                                </li>
-                                            </ul>
-                                                   
-                                    
-                                        </div>
-                                        
-        
-                                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                                <br>
-                                        </div>     
-                        </div>
-        
-                    </section>     
-           
-           <!-- 
-               works 栏
-            -->
-            <section v-if="project==true">
-                   <!-- body 第一层 -->
-                   <div class="w3pvt-logo text-center" >
-                        <div id="divcss5" style="height: 20%;">
-                                <h3 class="text-center" v-if="language=='english'" >See My Latest Works.</h2>    
-                        </div>
-    
-            </div>
-                
-                
-          
-
-            <!-- body 第三层 -->        
-            <div class="row" style="height: 70%;">
-                    
-                
-                <div class="row" style="height: 50%">
-                       
-                        
-                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" >
-                                
-                            <a href="http://kujijiku.com/todo"  id="todolist"> <img src="./todo1.png" alt="简洁待办事项列表" @mouseenter="mouseEnter($event)" @mouseleave="mouseLeave($event)"> </a>
-                                       
-                            
-                        </div>
-                        
-                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            
-                                <a href="http://kujijiku.com/messageBoard"> <img src="./tree.jpg"  alt="树洞-存放一个秘密的地方" @mouseenter="mouseEnter($event)" @mouseleave="mouseLeave($event)"> </a>
-                            
-                            </div>
-                        
-                           
-
-                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                <a href="" @click.prevent="prompt()" ><img src="./livi.jpg" class="image" alt="mobile-image" @mouseenter="mouseEnter($event)" @mouseleave="mouseLeave($event)">  </a> 
-                           </div>
                 </div>
                 
-                
-                <div class="row" style="height: 50%">
-                       
-                       <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            <a href="" @click.prevent="prompt()" ><img src="./livi.jpg" class="image" alt="mobile-image" @mouseenter="mouseEnter($event)" @mouseleave="mouseLeave($event)"> </a> 
-                       </div>
-                       
-                        
-                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                
-                                       <a href="" @click.prevent="prompt()" ><img src="./livi.jpg" class="image" alt="mobile-image" @mouseenter="mouseEnter($event)" @mouseleave="mouseLeave($event)"> </a> 
-                            
-                        </div>
+            </nav>
+            <br><br>
+            <!-- 巨幕 -->
+            <div class="jumbotron text-center">
+                <br> <br> <br> <br> <br> 
+                <h1>Hi You！ </h1>
+                <p>Welcome To Kujijiku.com</p>
 
-                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            
-                            <a href="" @click.prevent="prompt()">
-                                <img src="./livi.jpg" class="image" alt="mobile-image" @mouseenter="mouseEnter($event)" @mouseleave="mouseLeave($event)"> 
+                <form action="" class="form-inline">
+                    <input type="text" class="form-control" size="50" placeholder="Search What You Want">
+                    <button type="button" class="btn btn-danger">Search</button>
+                </form>
+
+                <br> <br> <br> <br> <br> 
+            </div>
+
+            <!-- 关于我 -->
+            <div id="about" class="container-fluid">
+                
+                <div class="row">
+                    <div class="col-sm-8 text-center">
+                        <h2>About Me </h2>
+                        <h4>A Student Of SZU</h4>
+                        <p>Major : Software Engineering</p>
+                        <p>From  : Xin Jiang Turpan</p>
+                        <br> <br>
+                        <button class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal-lg">Get in Touch</button>
+                    </div>
+                    <br> <br>
+                    <div class="col-sm-4 text-center">
+                        <!-- <span class="glyphicon glyphicon-signal logo"></span> -->
+                        <img src="./szu.jpg" alt="" style="height:200px ; width:200px;">
+                    </div>
+                </div>
+            </div>
+
+            <div id="value" class="container-fluid bg-grey text-center">
+                
+                <div class="row">
+                    <div class="col-sm-4">
+                        <span class="glyphicon glyphicon-blackboard logo"></span>
+                    </div>
+                    <div class="col-sm-8 text-center">
+                        <h2>My Skills</h2>
+                        <h4>web development</h4>
+                        <p>HTML/CSS/JAVASCRIPT/BOOTSTRAP</p>
+                        <p>HTTP/AJAX/JSON/NODE/VUE/MYSQL</p>
+                    </div>
+                </div>
+                
+            </div>
+            <div id="service" class="container-fluid text-center">
+                    <h2>Recent Work</h2>
+                    <h4>Some Small Projects</h4>
+                    <br>
+                    
+                    <div class="row ">
+                        <div class="col-sm-4 panel">
+                            <a href="http://kujijiku.com:8080/#/home/newsList">
+                                   <img src="./img/news.png" alt="">
                             </a>
                                 
-                            
-                            </div>
-                        
-                </div>
-                    
-            </div>    
-                    
-    
-            </section>
-
-
-             <!-- 
-               skill 栏
-            --> 
-
-            <section v-if="skill==true">
-                    <!-- body 第一层 -->
-                
-                        <div id="divcss5" style="height: 20%;" class="row">
-                           
-                            
-                            <div class="row" >
-                                    <h3  class="text-center" >主修课程</h3> 
-                            </div>
-                            <div class="row">
-                                    <br>
-                                </div>
-                            
-                            <div class="row" >
-                                    <ul>
-                                    
-                                            <div class="row" >
-                                                   <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                                       <br>
-                                                   </div>
-                                                   
-                                                   <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                                                        <li>
-                                                                <h4> <p>C，C++，Java程序设计 ，数据结构 ，算法导论 ， 计算机网络 ， 基于Web的编程</p> </h4> 
-                                                             
-                                                         </li> 
-                                                   </div>
-                                                   
-                                                 
-                                            </div>
-
-                                            <div class="row" >
-                                                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                                        <br>
-                                                    </div>
-                                                    
-                                                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                                                         
-                                                    <li>
-                                                            <h4> <p>数据库系统概论 ， 计算机系统概论 ， 操作系统 ， 互联网编程等课程</p> </h4> 
-                                                         
-                                                     </li> 
-                                                    </div>
-                                                   
-                                             </div>
-        
-                                          
-                                        </ul>
-                            </div>
-                            
-                               
+                                <h4>News</h4>
+                                <p>News and information on mobile phone</p>
                         </div>
-                      
-    
-           
-                
-                
-            <!-- body 第二层 -->
-            <div class="row" >
-                  
-                           
-                    <div class="row" >
-                            <h3  class="text-center" >掌握技能</h3> 
-                    </div>
-                    
-                    <div class="row">
-                        <br>
-                    </div>
-                    
-                    
-                        <ul>
-                            
-                        
-                         <div class="row">
-                                   
-                                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                                <br>
-                                            </div>
-                                            
-                                            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                                                    <li>
-                                                            <h4> <p>熟练使用：HTML/CSS/JavaScript/Ajax/Vue/Nodejs以及Express框架</p> </h4> 
-                                                         
-                                                     </li>
-                                            </div>
-                                            
-                                            
-                                           
-                                            
-                         </div>
-                           
-                            
-                            
-                            
-                         
-                         <div class="row">
-                                   
-                                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                                <br>
-                                            </div>
-                                            
-                                            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                                                    <li>
-                                                            <h4> <p>熟练使用：MySQL/Redis数据库  ， json等数据传输格式 ， Git/GitHub等版本管理工具</p> </h4> 
-                                                         
-                                                     </li>
-                                            </div>
-                                            
-                                            
-                                           
-                                            
-                         </div>
-                       
-                            
-                         <div class="row">
-                                   
-                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                    <br>
-                                </div>
-                                
-                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                                        <li>
-                                                <h4> <p>熟练理解：TCP/IP协议层的各类协议,对HTTP协议有较好的了解	</p> </h4> 
-                                             
-                                         </li>
-                                </div>
-                                
-                                
-                               
-                                
-             </div>
-           
-                           
-                            <div class="row">
-                                   
-                                   
-                                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                                <br>
-                                            </div>
-                                            
-                                            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                                                    <li>
-                                                            <h4> <p>会用一点：Bootstrap/jQuery/eJS/JSP/MongoDB</p> </h4> 
-                                                      
-                                                  </li>
-
-                                            </div>
-                                            
-                                           
-                        </ul>
-                        <div class="row">
-                                <br>
-                            </div>
-            </div>
-                
-
-            <!-- body 第三层 -->        
-            <div class="row" >
-                    
-                    <div class="row" >
-                            <h3  class="text-center" >自我评价</h3> 
-                    </div>
-                    
-                    <div class="row">
-                            <br>
+                        <div class="col-sm-4 panel">
+                                <a href="#">
+                                        <img src="./img/tree.jpg" alt="">
+                                 </a>
+                                <h4>MessageBoard</h4>
+                                <p>A message board to share stories</p>
                         </div>
-                        <ul>
-                               
-                                    
-                                    
-                                     
-                                            
-                                        
-                                         <div class="row">
-                                                   
-                                                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                                                <br>
-                                                            </div>
-                                                            
-                                                            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                                                                    <li>
-                                                                            <h4> <p>喜欢Web，前后端都懂一些，能独立开发简单的网站，想往全栈发展</p> </h4> 
-                                                                         
-                                                                     </li>
-                                                            </div>
-                                                            
-                                                            
-                                                           
-                                                            
-                                         </div>
-                                           
-                                         
-                                         <div class="row">
-                                                   
-                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                                    <br>
-                                                </div>
-                                                
-                                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                                                        <li>
-                                                                <h4> <p>做事比较细心，性格随和，容易沟通，学习能力较强，抗压能力较强</p> </h4> 
-                                                             
-                                                         </li>
-                                                </div>
-                                                
-                                                
-                                               
-                                                
-                             </div>
-                               
-                                      
-                                            
-                                            
-                                          
-                                                    
-                                           
-                            
-                         
-                             
-                            
-                            
-                           
-                        </ul>
-            </div>    
-                    
-       
-                    
-
-            </section>
-            <section v-if="about==true">
-                     <!-- body 第一层 -->
-                     <div class="w3pvt-logo text-center" >
-                            <div id="divcss5" style="height: 20%;">
-                                    <h3 class="text-center" v-if="language=='english'" >GET IN TOUCH .</h2>    
-                            </div>
-        
-                </div>
-                    
-                    
-              
-    
-                <!-- body 第三层 -->        
-                <div class="row" style="height: 75%;">
-                        
-                    
-                    <div class="row" style="height: 70%">
-                        
-                    <div class="row">
-                            
-                    
-                        
-                           
-                            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                                    <br>
-                                </div>
-                                 
-                       <!-- 左边 -->
-                       
-                       
-                       <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                            
-                           <div class="row">
-                                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                                        <br>
-                                    </div>
-                                
-                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                                        <label for="" class="col-sm-2 control-label">Name*</label>    
-                                </div>
-                                    
-                                
-                           </div>
-                           
-                           <div class="row">
-                               
-                               <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                                   <br>
-                               </div>
-                               
-                                <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputPassword3" placeholder="Name" v-model="Name">
-                                      </div>
-                           </div>
-                           
-                           <div class="row">
-                               <br>
-                           </div>
-
-                           <div class="row">
-                                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                                        <br>
-                                    </div>
-                                
-                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                                        <label for="" class="col-sm-2 control-label">Email*</label>    
-                                </div>
-                                    
-                                
-                           </div>
-                           
-                           <div class="row">
-                               
-                               <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                                   <br>
-                               </div>
-                               
-                                <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputPassword3" placeholder="Email" v-model="Email">
-                                      </div>
-                           </div>
-                           
-                           
-                           
-                           
-                       </div>
-                       
-
-                       <!-- 右边 -->
-                             
-                      
-                       
-                       <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                            <div class="row">
-                                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                                            <br>
-                                        </div>
-                                    
-                                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                                            <label for="" class="col-sm-2 control-label">Message*</label>    
-                                    </div>
-                                        
-                                    
-                               </div>
-                               
-                               <div class="row">
-                                   
-                                   <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                                       <br>
-                                   </div>
-                                   
-                                    <div class="col-sm-10">
-                                            <textarea class="form-control" rows="5" v-model="Message"></textarea>
-
-                                          </div>
-                               </div>
-                           
-                       </div>
-                            
-                                
-    
-                  
-                     
-                     
-                     
-                         
-                    </div> 
-                    
-                    <div class="row">
-                        <br>
-                    </div>
-                    
-                       
-                       <div class="row">
-                           
-                            
-                                
-                            <p class="text-center">     <button type="button" class="btn btn-default" @click="submit">SUBMIT</button></p>
-                                    
-                               
-                                  
-
-                       </div>
-                       
-                        
-                       
-                        
-                          
-                    </div>
-                    
-                    
-                    <div class="row" style="height: 25%">
-                           
-                           <div class="row">
-                               
-                            <P class="text-center">
-                                    <a href="./qqAndWechat.html"> <img src="./QQ.jpg"  target="_blank" alt="QQ"  class="inter"> </a>
-                                
-                                
-                                
-                                    <a href="./qqAndWechat.html"> <img src="./wechat.png"   target="_blank" alt="wechat" class="inter"> </a>
-                                    
-                                    
-                                    
-
-                                    <a href="https://github.com/Mardanjan"> <img src="./github.jpg"  alt="github"  class="inter"> </a>
-                            </P>
-
-                           </div>
-                           
-                            
-                            
-                    </div>
-                        
-                </div>    
-            </section>
-
-        </div>
-            
-        <div class="foot">
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                        <br>
-                    </div>
-                    
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                            <p class="text-center">© 2019 Mardan Yusan. </p>
-                    </div>
-                    
-                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <br>
+                        <div class="col-sm-4 panel">
+                                <a href="#">
+                                        <img src="./img/todo1.png" alt="">
+                                 </a>
+                                <h4>Todo List</h4>
+                                <p>Keep your to-do list simple</p>
                         </div>
+                    </div>
                    
-        </div>     
-                
-            
-          
-            
-          
-            
-            
-            
+                    
 
+            </div>
+            <div id="portfolio" class="container-fluid text-center bg-grey"> 
+                <h2>My Favorite Sports </h2> <br>
+                <div class="row text-center">
+                    <div class="col-sm-4">
+                        <div class="thumbnail">
+                            <img src="./img/swimming.jpg" alt="" class="myImg">
+                            <p><strong>Swimming</strong></p>
+                            <p>Swimming is an individual or team racing sport that requires the use of one's entire body to move through water.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                            <div class="thumbnail">
+                                <img src="./img/runnig.jpg" alt="">
+                                <p><strong>Runnig</strong></p>
+                                <p>Running is a method of terrestrial locomotion allowing humans and other animals to move rapidly on foot</p>
+                            </div>
+                    </div>
+                    <div class="col-sm-4">
+                            <div class="thumbnail">
+                                <img src="./img/pingpang.jpg" alt="">
+                                <p><strong>PingPang</strong></p>
+                                <p>Chinese national sport, is a world popular ball sports, including attack, confrontation and defense.</p>
+                            </div>
+                    </div>
+                    <h2>My Favorite Films</h2>
+                    <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+                        <!-- 轮播指标 -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1" ></li>
+                            <li data-target="#myCarousel" data-slide-to="2" ></li>
+                        </ol>
+                        <!-- 轮播项目 -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="./img/marvil.jpg" alt="">
+                                <div class="carousel-caption">MARVIL</div>
+                            </div>
+                            <div class="item ">
+                                    <img src="./img/titan.jpg" alt="">
+                                    <div class="carousel-caption">Atack On Titan</div>
+                            </div>
+                            <div class="item ">
+                                    <img src="./img/qiyu.jpg" alt="">
+                                    <div class="carousel-caption">One Punch Man</div>
+                            </div>
+                        </div>
+                        <!-- 轮播控制器 -->
+                        <a href="#myCarousel" class="carousel-control left " data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a href="#myCarousel" class="carousel-control right " data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="pricing" class="container-fluid">
+                <div class="text-center">
+                        <h2>Black Space  </h2>
+                        <h4>bala bala bala bala bala bala  </h4>
+                </div>
                 
-            
-    </div>
-</div>
-
-<script>
- var vm = new Vue({
-        el:'#app',
-        data:{
-            home:true,
-            project:false,
-            skill:false,
-            about:false,
-            language:'english',
-            active: "",
-            Email:"",
-            Name:"",
-            Message:"",
-        },
-        methods:{
-            changeLanguage(){
-                if(this.language=='english'){
-                    this.language='chinese';
-                }else if(this.language=='chinese'){
-                    this.language='english';
-                }
-            },
-            setHome(){
-                this.home=true;
-                this.project=false;
-                this.skill=false;
-                this.about=false;
-                document.getElementById('home').className="btn btn-primary";
-                document.getElementById('projects').className="btn btn-success";
-                document.getElementById('skill').className="btn btn-success";
-                document.getElementById('about').className="btn btn-success";
-            },
-            setProject(){
-                this.home=false;
-                this.project=true;
-                this.skill=false;
-                this.about=false;
-                document.getElementById('home').className="btn btn-success";
-                document.getElementById('projects').className="btn btn-primary";
-                document.getElementById('skill').className="btn btn-success";
-                document.getElementById('about').className="btn btn-success";
-               
-            },
-            setSkill(){
-                this.home=false;
-                this.project=false;
-                this.skill=true;
-                this.about=false;
-                document.getElementById('home').className="btn btn-success";
-                document.getElementById('projects').className="btn btn-success";
-                document.getElementById('skill').className="btn btn-primary";
-                document.getElementById('about').className="btn btn-success";
-            },
-            setAbout(){
-                this.home=false;
-                this.project=false;
-                this.skill=false;
-                this.about=true;
-                document.getElementById('home').className="btn btn-success";
-                document.getElementById('projects').className="btn btn-success";
-                document.getElementById('skill').className="btn btn-success";
-                document.getElementById('about').className="btn btn-primary";
-            },
-            mouseEnter($event){  //鼠标移入事件
-               $event.currentTarget.className = "inter";
-            },
-            mouseLeave($event){  //鼠标移除事件
-            $event.currentTarget.className = "moved";
-
-            },
-            prompt(){
-                alert("应用正在开发当中！请稍等...")
-            },
-            submit(){
-                if(this.Name=='' || this.Email=='' || this.message==''){
-                    alert("您是不是漏掉信息了呢？");  
-                }else{
-                    if(this.Email.indexOf("@")==-1){
-                        alert("您的邮箱地址有误哦！");  
-                    }else{
-                        var message = "Name :" + this.Name + " || Email :" + this.Email + " || Message :" + this.Message ;
-                        this.$http.post('http://kujijiku.com/api/messageBoard/addMessage',{message:message},{emulateJSON:true}).then(function(res){
-                        //  document.write(res.body);    
-                        alert("留言成功！");
-                        },function(res){
-                        console.log(res.status);
-                        });
-                        }     
-                }
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="panel panel-default text-center">
+                            <div class="panel-heading">
+                                <h1>bala</h1>
+                            </div>
+                            <div class="panel-body">
+                                <p>bala bala bala bala bala bala </p>
+                                <p>bala bala bala bala bala bala </p>
+                                <p>bala bala bala bala bala bala </p>
+                                <p>bala bala bala bala bala bala </p>
+                            </div>
+                            <div class="panel-footer">
+                                <h3>$10</h3>
+                                <h4>ba la b la </h4>
+                                <button class="btn btn-lg">Button</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                            <div class="panel panel-default text-center">
+                                    <div class="panel-heading">
+                                            <h1>bala</h1>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>bala bala bala bala bala bala </p>
+                                            <p>bala bala bala bala bala bala </p>
+                                            <p>bala bala bala bala bala bala </p>
+                                            <p>bala bala bala bala bala bala </p>
+                                        </div>
+                                        <div class="panel-footer">
+                                            <h3>$10</h3>
+                                            <h4>ba la b la </h4>
+                                            <button class="btn btn-lg">Button</button>
+                                        </div>
+                            </div>
+                    </div>
+                    <div class="col-sm-4">
+                            <div class="panel panel-default text-center">
+                                    <div class="panel-heading">
+                                            <h1>bala</h1>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>bala bala bala bala bala bala </p>
+                                            <p>bala bala bala bala bala bala </p>
+                                            <p>bala bala bala bala bala bala </p>
+                                            <p>bala bala bala bala bala bala </p>
+                                        </div>
+                                        <div class="panel-footer">
+                                            <h3>$10</h3>
+                                            <h4>ba la b la </h4>
+                                            <button class="btn btn-lg">Button</button>
+                                        </div>
+                    </div>
+                </div>
                 
-            }
-            
-          
-        },
-    })
-</script>
+
+            </div>
+            <div id="contact" class="container-fluid bg-grey" >
+                <h2 class="text-center">CONTACT</h2>
+                
+                <div class="row" >
+                    <div class="col-sm-5">
+                        <p>Welcome you to send me a message</p>
+                        <p>I will reply to you as soon as possible</p>
+                    </div>
+                    <div class="col-sm-7" id="app">
+                        
+                        <div class="row">
+                            <div class="col-sm-6 form-group">
+                                <input type="text" name="name" id="" class="form-control" placeholder="Your Name" required  v-model='name' required>
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <input type="email" name="email" id="" class="form-control" placeholder="Your Email " required v-model='email' required>
+                            </div>
+                        </div>
+                        <textarea name="comments" id="" cols="30" rows="5" placeholder="Your Message , Less Than 200 Words" class="form-control" v-model='message' required></textarea><br>
+                        
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <button class="btn btn-default pull-right" type="button" @click="send()" data-loading-text="正在发送中..."  id="send" >Send</button>
+                            </div>
+                        </div>
+                            
+                    </div>
+                </div>
+                
+            </div>
+            <footer class="container-fluid text-center">
+                <a href="#myPage" title="To Top">
+                    <span class="glyphicon glyphicon-chevron-up"></span>
+                </a>
+                <p>Mardan Yusan 2019</p>
+            </footer>
+        </div>
+
+        <!-- 组件  弹出联系方式 -->
+        <div class="container">
+                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-lg">
+                    modal大模态框
+                </button> -->
+                
+                <div class="modal fade" id="myModal-lg">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">关闭</button>
+                                <h4 class="modal-title">联系方式</h4>
+                            </div>
+                            <div class="modal-body text-center">
+                                <h4>WeChat</h4>
+                              <p>
+                                    <img src="./img/WeChatCard.jpg" alt="" style="height: 200px; width: 200px;">
+                              </p>
+                              <br>
+                              <h4>QQ</h4>
+                              <p>
+                                    <img src="./img/qqCard.png" alt="" style="height: 200px; width: 200px;">
+                              </p>
+                                
+                              
+                            </div>
+                            <div class="modal-footer ">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                    关闭
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+        </div>
+        <script>
+                new Vue({
+                    el: '#app',
+                    data: {
+                        name:'',
+                        email:'',
+                        message:'',
+                    },
+                    methods:{
+                        send(){
+                            console.log("name:"+this.name)
+                            console.log("email:"+this.email)
+                            console.log("message:"+this.message)
+                            var url = "http://kujijiku.com/email/fromIndex?name="+this.name+ "&message="+ this.message+ "&email=" + this.email
+                            $("#send").button('loading')
+                            this.$http.get(url).then(function(res){
+                                 //document.write(res.body);
+                                 console.log(res.body)
+                                 if(res.body.code===200){
+                                    $("#send").button('reset')
+                                 }
+                                 else{
+                                    alert('服务器遇到问题了，暂时不支持留言功能')
+                                 }
+                                },function(){
+                                    alert('服务器遇到问题了，暂时不支持留言功能')
+                            });
+                        }
+                    }
+                })
+        </script>
 </body>
-</html> 
+</html>
+
+流程： 
+    1.打印‘深圳大学家庭经济困难学生认定申请表 ’（总共2页）
+    2.手写‘深圳大学家庭经济困难学生认定申请表 ’（总共2页）
+    3.正反面拍照放到一个word文件里，转换成.pdf文件
+    4.在办事大厅-困难认定服务里申请，（先填写信息，最后上传上面的.pdf文件）
+    5.从办事大厅-困难认定服务里打印‘深圳大学学生2019年家庭经济认定申请表’（总共3页）
+    6.打印好的‘深圳大学学生2019年家庭经济认定申请表’送到学生活动中心202办公室（不是西南那边的1楼）

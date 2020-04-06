@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>分页</title>
+       
+        <script src="./js/jquery.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <script src="./js/vue.min.js"></script>
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+       
+     
+</head>
+<body>
+    <div class="container" id="app">
+        <h1>{{dangqian}}</h1>
+        <nav aria-label="Page navigation"> 
+            <ul class="pagination">
+                <li @click="last">
+                    <a href="#" aria-label="Previous">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                </li>
+                <li>
+                    <a  aria-label="Previous">{{dangqian}}/{{zonggong}}</a>
+                </li>
+                <li @click="next">
+                        <a href="#" aria-label="Previous" >
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                </li>
+                
+
+            </ul>
+        </nav>
+    </div>
+    <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    name:'',
+                    email:'',
+                    num:'1',
+                    maxPage:'',
+                    list:[1,2,3,4,5,6],
+                    dangqian:1,
+                    zonggong:24
+                    
+                },
+                methods:{
+                    test(){
+                        console.log("name:"+this.name)
+                        console.log("email:"+this.email)
+                    }, 
+                    next(){
+                        if(this.dangqian<this.zonggong){
+                            this.dangqian++
+                        }else if(this.dangqian===this.zonggong){
+                            console.log("这是最后一页不能再往后")
+                        }
+                    },
+                    last(){
+                        if(this.dangqian>1){
+                            this.dangqian--
+                        }else if(this.dangqian==1){
+                            console.log("这是第一页不能再往前")
+                        }
+                    }
+                }
+            })
+        </script>
+</body>
+</html>
