@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function log(x) {
+      console.log(x)
+    }
+    let values = [1, 2, 3]
+    for (let entry of values.entries()){
+      log (entry)
+    }
+    log(values.entries)
+    log(values.values())
+
+    const strings = new String('mardanjan')
+    const obj = {
+      a: 1,
+      b: 2
+    }
+    let str = '123321312312312321 23 123 '
+    let arr = [...str]
+    log(arr)
+  </script>
+</body>
+</html>
