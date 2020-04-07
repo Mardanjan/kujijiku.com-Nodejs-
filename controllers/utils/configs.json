@@ -1,0 +1,10 @@
+{
+    "host": "120.79.26.111",
+    "port": 3306,
+    "username": "News",
+    "password": "123456",
+    "dbname": "News",
+    "emailKey":"fxflthescqwcbgib"
+    
+  }  
+  
