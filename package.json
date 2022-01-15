@@ -10,7 +10,7 @@
     "ejs-lint": "^0.3.0",
     "express": "^4.17.1",
     "http-proxy": "^1.17.0",
-    "marked": "^0.7.0",
+    "marked": "^4.0.10",
     "mysql2": "^1.6.5",
     "nodemailer": "^6.3.0",
     "request": "^2.88.0",
